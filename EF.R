@@ -19,24 +19,6 @@ cor2cov <- function(x) {
 }
 
 
-## 基本ウェイトの作成関数
-
-calcWeight <- function(x) {
-    ## 各行合計の計算
-    sumw <- numeric(nrow(x))
-    for (i in 1:ncol(x)) {
-        sumw <- sumw + x[, i]
-    }
-
-    ## ウェイトの計算
-    for (i in 1:ncol(x)) {
-        x[, i] <- x[, i] / sumw
-    }
-
-    return(x)
-}
-
-
 ## ウェイトを組み合わせて 3 つの証券のウェイトを作成
 
 mkWeight <- function(length) {
